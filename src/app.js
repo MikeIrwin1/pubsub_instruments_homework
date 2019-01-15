@@ -6,10 +6,14 @@ const InstrumentFamilies = require('./models/instrument_families')
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript Loaded');
 
-  const selectContainer = document.querySelector('#instrument-families');
-  const instrumentDropdown = new SelectView(selectContainer);
+  const selectDropdown = document.querySelector('#instrument-families');
+  const instrumentDropdown = new SelectView(selectDropdown);
   instrumentDropdown.bindEvents();
 
   const instruments = new InstrumentFamilies(instrumentData);
   instruments.bindEvents();
+
+  const selectContainer = document.querySelector('#instrument-family-details');
+  const instrumentResult = new ResultView(selectContainer);
+  instrumentResult.bindEvents();
 });

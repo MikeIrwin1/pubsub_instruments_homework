@@ -11,7 +11,6 @@ SelectView.prototype.bindEvents = function () {
   });
 
   this.container.addEventListener('change', (event) => {
-    debugger;
     const selectedIndex = event.target.value;
     PubSub.publish('SelectView:selected-instrument', selectedIndex);
   });
