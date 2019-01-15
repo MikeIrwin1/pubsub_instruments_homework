@@ -8,13 +8,13 @@ SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('InstrumentFamilies:all-instruments-ready', (event) => {
     const allInstruments = event.detail;
     this.populate(allInstruments);
-    console.log(allInstruments);
-  })
+  });
 
-  this.container.addEventListener('select', (event) => {
-    const selectedInstrument = event.details;
-    console.log(selectedInstrument);
-  })
+  this.container.addEventListener('change', (event) => {
+    debugger;
+    const selectedIndex = event.target.value;
+    PubSub.publish('SelectView:selected-instrument', selectedIndex);
+  });
 };
 
 SelectView.prototype.populate = function (allInstruments) {
